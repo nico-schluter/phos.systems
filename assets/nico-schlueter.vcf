@@ -1,0 +1,12 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Schlüter;Nico;;;
+FN:Nico Schlüter
+ORG:Phos Systems;Nico Schlüter Technical Consulting
+TITLE:Principal Consultant
+EMAIL;TYPE=work,INTERNET:info@phos.systems
+TEL;TYPE=work,VOICE:+43 667 62851874
+ADR;TYPE=work:;;Augasse 15;Hohenau an der March;;2273;Austria
+URL:https://phos.systems/
+REV:2025-10-16T10:00:00Z
+END:VCARD
