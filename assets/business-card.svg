@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="91mm"
+   height="61mm"
+   viewBox="0 0 91 61"
+   version="1.1"
+   id="svg6"
+   sodipodi:docname="business-card.svg"
+   inkscape:version="1.4.2 (ebf0e940d0, 2025-05-08)"
+   inkscape:export-filename="business-card.png"
+   inkscape:export-xdpi="300"
+   inkscape:export-ydpi="300"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview6"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="3.828122"
+     inkscape:cx="171.88585"
+     inkscape:cy="115.3307"
+     inkscape:window-width="2536"
+     inkscape:window-height="1390"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="header" />
+  <title
+     id="title1">Phos Systems — Business Card (Single-Sided, 85×55mm + 3mm bleed)</title>
+  <desc
+     id="desc1">Single-sided business card for Nico Schlüter — Full‑Stack Hardware Consultant. QR links to https://phos.systems/</desc>
+  <defs
+     id="defs2">
+    <linearGradient
+       id="accent"
+       x1="0"
+       y1="0"
+       x2="10.099505"
+       y2="10.099505"
+       gradientTransform="scale(8.4162539,0.18656465)"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         offset="0"
+         stop-color="#10b981"
+         id="stop1" />
+      <stop
+         offset="1"
+         stop-color="#34d399"
+         id="stop2" />
+    </linearGradient>
+    <style
+       id="style2"><![CDATA[
+      .brand { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; font-weight: 700; letter-spacing: 0.12em; fill: #0b1220; }
+      .name  { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; font-weight: 700; fill: #0b1220; }
+      .title { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; font-weight: 500; fill: #334155; }
+      .contact { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; font-weight: 500; fill: #0b1220; }
+      .muted { fill: #64748b; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+    ]]></style>
+  </defs>
+  <!-- Bleed background (full edge) -->
+  <rect
+     x="0"
+     y="0"
+     width="91"
+     height="61"
+     fill="#ffffff"
+     id="rect2" />
+  <!-- Safe area (85×55) starting at (3,3) -->
+  <g
+     id="card"
+     transform="translate(3,3)">
+    <!-- Minimal accent bar -->
+    <rect
+       x="0"
+       y="0"
+       width="85"
+       height="1.8842106"
+       fill="url(#accent)"
+       id="rect3"
+       style="fill:url(#accent);stroke-width:1.25307" />
+    <!-- Header row: logo + brand + QR -->
+    <g
+       id="header">
+      <!-- Logo mark (from favicon.svg) -->
+      <image
+         x="0"
+         y="4.0751882"
+         width="10.154078"
+         height="10.154078"
+         xlink:href="favicon.svg"
+         href="favicon.svg"
+         id="image3" />
+      <text
+         class="brand"
+         x="12.946448"
+         y="10.326054"
+         font-size="4.31548px"
+         id="text3"
+         style="stroke-width:1.26926">PHOS SYSTEMS</text>
+      <!-- QR to homepage -->
+      <path
+         style="display:inline;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:0.2;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+         d="m 4.1297164,6.9569806 1.1138503,5.248e-4 c 0,0 0.2377966,0.014986 0.342206,0.065908 0.07441,0.03629 0.1315366,0.1019445 0.1871672,0.1632552 0.057175,0.063012 0.1106343,0.1314499 0.1483533,0.2077176 0.047244,0.095528 0.077188,0.2003495 0.093986,0.3055892 0.012485,0.078218 0.010494,0.158618 0.00432,0.2375853 -0.00712,0.0911 -0.020863,0.1825795 -0.047517,0.2699832 C 5.9477657,8.2872797 5.9135962,8.3646927 5.8706133,8.4361185 5.828525,8.5060579 5.780058,8.5741201 5.7193777,8.6287172 5.6498814,8.6912465 5.5684196,8.7425996 5.4817925,8.777748 5.3733204,8.82176 5.1383739,8.851183 5.1383739,8.851183 L 4.1102779,8.831744 Z"
+         id="path8"
+         sodipodi:nodetypes="ccaaaaaaaaaccc" />
+      <path
+         style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:0.2;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+         d="m 3.1762219,5.9924812 2.217575,-0.018328 c 0,0 0.2901152,0.044896 0.4251012,0.099226 0.1063753,0.042815 0.2031087,0.1081227 0.2957635,0.1756793 0.1043282,0.076068 0.2004161,0.1637705 0.2901786,0.2565789 0.1111138,0.1148843 0.2204396,0.2342537 0.305451,0.3695968 0.081663,0.1300116 0.1491652,0.27116 0.1924342,0.4184678 0.053323,0.1815352 0.081221,0.3728342 0.079417,0.5620301 -0.00196,0.2052095 -0.032713,0.4132052 -0.097744,0.6078478 C 6.8380699,8.6022441 6.7562064,8.7268918 6.6797463,8.851503 6.5930223,8.9928418 6.5073341,9.1380078 6.3926222,9.2577529 6.3062611,9.3479032 6.205467,9.4262161 6.0963344,9.4868412 5.9481997,9.5691326 5.7821656,9.6153904 5.6198307,9.6640027 5.4456885,9.7161508 5.0883457,9.7861834 5.0883457,9.7861834 H 4.1353383 l -0.00611,1.5944546 -0.9774435,0.0061 z"
+         id="path9"
+         sodipodi:nodetypes="ccaaaaaaaaaaaccccc" />
+      <image
+         x="58.018093"
+         y="6.9316654"
+         width="23.688465"
+         height="23.688465"
+         xlink:href="qr-phos-home.svg"
+         href="qr-phos-home.svg"
+         id="image4" />
+      <rect
+         x="57.425884"
+         y="6.3394537"
+         width="24.87289"
+         height="24.87289"
+         fill="none"
+         stroke="#e2e8f0"
+         stroke-width="0.236885"
+         opacity="0.35"
+         id="rect6" />
+    </g>
+    <!-- Name & title -->
+    <g
+       id="identity"
+       transform="matrix(0.99080236,0,0,0.99080236,-0.00108028,18.073456)">
+      <text
+         class="name"
+         x="0.037383012"
+         y="23.77169"
+         font-size="8.17336px"
+         id="text4"
+         style="stroke-width:1.31828">Nico Schlüter</text>
+      <text
+         class="title"
+         x="0.037383012"
+         y="29.1971"
+         font-size="4.74582px"
+         id="text5"
+         style="stroke-width:1.31828">Full‑Stack Hardware Consultant</text>
+    </g>
+    <!-- Contact (phone · email) -->
+    <g
+       id="contact"
+       transform="matrix(0.99080236,0,0,0.99080236,-0.00108028,0.49859915)">
+      <text
+         class="contact"
+         x="-0.34918141"
+         y="53.224625"
+         font-size="4.74582px"
+         id="text6"
+         style="stroke-width:1.31828">+43 667 62851874 · info@phos.systems</text>
+    </g>
+    <!-- Quiet zone hint under QR (optional, subtle) -->
+  </g>
+</svg>
