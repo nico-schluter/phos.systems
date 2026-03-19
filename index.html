@@ -1,349 +1,454 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Phos Systems — Hardware Consulting for Startups & SMEs</title>
-  <meta name="description" content="Hardware and product consulting by Nico Schlüter: component selection, PCB design, rapid prototyping, materials and manufacturing for scalable production." />
-  <link rel="canonical" href="https://phos.systems/" />
-  <meta name="theme-color" content="#0b1220" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Phos Systems — Power Electronics, Embedded Systems, Open Hardware</title>
+  <meta name="description" content="Power electronics, embedded systems, and open hardware. EDM pulse generators, IoT devices, custom electronics. In-house PCB fabrication and assembly. Based in Austria.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    ::selection { background: #b4c8ae; color: #1e2418; }
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Phos Systems — Hardware Consulting for Startups & SMEs" />
-  <meta property="og:description" content="Component selection, PCB design, prototyping, materials & manufacturing for scale production." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://phos.systems/" />
-  <meta property="og:image" content="https://phos.systems/og-image.jpg" />
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Phos Systems — Hardware Consulting for Startups & SMEs" />
-  <meta name="twitter:description" content="Component selection, PCB design, prototyping, materials & manufacturing for scale production." />
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="assets/styles.css" />
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "Phos Systems",
-    "url": "https://phos.systems/",
-    "logo": "https://phos.systems/assets/favicon.svg",
-    "image": "https://phos.systems/og-image.jpg",
-    "description": "Hardware and product consulting: component selection, PCB design, prototyping, materials and manufacturing for scalable production.",
-    "founder": {
-      "@type": "Person",
-      "name": "Nico Schlüter"
-    },
-    "legalName": "Nico Schlüter Technical Consulting",
-    "email": "info@phos.systems",
-    "telephone": "+43 667 62851874",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Augasse 15",
-      "addressLocality": "Hohenau an der March",
-      "postalCode": "2273",
-      "addressCountry": "AT"
+    :root {
+      --bg: #eee9e0;
+      --surface: #e4dfd4;
+      --border: #d0cabf;
+      --text: #4a4638;
+      --text-dim: #787262;
+      --text-bright: #201e14;
+      --green: #5a7848;
+      --green-dim: #6e9660;
     }
-  }
-  </script>
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, 'Segoe UI', system-ui, Helvetica, Arial, sans-serif;
+      font-size: 15px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--green); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Top bar */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(238, 233, 224, 0.90);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 0.8rem 0;
+    }
+    .topbar-inner {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .topbar-brand {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--text-bright);
+      text-decoration: none;
+    }
+    .topbar-brand:hover { text-decoration: none; color: #201e14; }
+    .topbar-nav { display: flex; gap: 0.25rem; }
+    .topbar-nav a {
+      color: var(--text-dim);
+      font-size: 0.85rem;
+      padding: 0.35rem 0.65rem;
+      border-radius: 6px;
+      transition: background 0.15s, color 0.15s;
+    }
+    .topbar-nav a:hover { background: var(--surface); color: var(--text); text-decoration: none; }
+
+    /* Layout */
+    .page { max-width: 1060px; margin: 0 auto; padding: 0 2rem; }
+
+    /* Hero */
+    .hero {
+      padding: 5rem 0 3.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: end;
+    }
+    .hero-main h1 {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      line-height: 1.2;
+      color: var(--text-bright);
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .hero-main h1 span { color: var(--green); }
+    .hero-main p {
+      color: var(--text-dim);
+      font-size: 1rem;
+      max-width: 45ch;
+      line-height: 1.7;
+    }
+    .hero-side {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .hero-stat {
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-stat:last-child { border-bottom: none; }
+    .stat-label { color: var(--text-dim); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; min-width: 7rem; }
+    .stat-value { color: var(--text); font-size: 0.95rem; }
+    .stat-value a { color: var(--green); }
+
+    /* Divider */
+    .divider {
+      border: 0;
+      border-top: 1px solid var(--border);
+      margin: 0;
+    }
+
+    /* Section */
+    .section {
+      padding: 3.5rem 0;
+    }
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 1.5rem;
+    }
+    .section-title {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--green);
+    }
+    .section-link {
+      font-size: 0.85rem;
+      color: var(--text-dim);
+    }
+
+    /* Project cards */
+    .project-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.5rem;
+      transition: border-color 0.2s;
+    }
+    .project-card:hover { border-color: var(--green-dim); }
+    .project-card h3 {
+      color: var(--text-bright);
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.15rem;
+    }
+    .project-card .tag {
+      font-size: 0.75rem;
+      color: var(--green);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+    .project-card p {
+      color: var(--text-dim);
+      font-size: 0.9rem;
+      margin-bottom: 0.75rem;
+      line-height: 1.6;
+    }
+    .project-card .card-link {
+      font-size: 0.85rem;
+      color: var(--green);
+    }
+
+    /* Services */
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .service-cell {
+      background: var(--surface);
+      padding: 1.25rem;
+    }
+    .service-cell h3 {
+      color: var(--text-bright);
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+    .service-cell p {
+      color: var(--text-dim);
+      font-size: 0.85rem;
+      line-height: 1.55;
+    }
+
+    /* Contact */
+    .contact-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    .contact-text {
+      color: var(--text);
+      font-size: 1rem;
+      line-height: 1.7;
+      max-width: 42ch;
+    }
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .contact-info a {
+      color: var(--text-bright);
+      font-size: 1.05rem;
+    }
+    .contact-meta {
+      color: var(--text-dim);
+      font-size: 0.85rem;
+      margin-top: 0.5rem;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.25rem 0;
+      margin-top: 1rem;
+    }
+    footer .page {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: #a49e90;
+    }
+    footer a { color: var(--text-dim); }
+
+    /* Video showcase */
+    .video-showcase {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 0;
+      margin-top: 1rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .video-wrap {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+    }
+    .video-wrap iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .video-info {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .video-info h3 {
+      color: var(--text-bright);
+      font-size: 1.05rem;
+      margin-bottom: 0.4rem;
+    }
+    .video-info p {
+      color: var(--text-dim);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-bottom: 0.75rem;
+    }
+    .video-info a {
+      font-size: 0.85rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .page { padding: 0 1.25rem; }
+      .topbar-inner { padding: 0 1.25rem; }
+      .hero { grid-template-columns: 1fr; gap: 2rem; padding: 3rem 0 2.5rem; }
+      .project-grid { grid-template-columns: 1fr; }
+      .service-grid { grid-template-columns: 1fr; }
+      .contact-row { grid-template-columns: 1fr; }
+      .video-showcase { grid-template-columns: 1fr; }
+      .video-info { padding: 1.25rem; }
+      footer .page { flex-direction: column; gap: 0.5rem; }
+    }
+  </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-wrap">
-      <a href="#top" class="brand" aria-label="Phos Systems home">
-        <img src="assets/favicon.svg" alt="Phos Systems" class="brand-icon" />
-        <span class="brand-name">PHOS SYSTEMS</span>
-      </a>
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" data-nav-toggle>
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </button>
-      <nav class="nav" data-nav>
+
+  <div class="topbar">
+    <div class="topbar-inner">
+      <a href="#" class="topbar-brand">PHOS SYSTEMS</a>
+      <nav class="topbar-nav">
+        <a href="#projects">Projects</a>
+        <a href="#lab">Lab</a>
         <a href="#services">Services</a>
-        <a href="#process">Process</a>
-        <a href="#solutions">Solutions</a>
-        <a href="#about">About</a>
-        <a href="#contact" class="btn btn-sm btn-primary">Free consulting session</a>
+        <a href="#contact">Contact</a>
       </nav>
     </div>
-  </header>
+  </div>
 
-  <main id="top">
-    <!-- Hero -->
-    <section class="section hero" aria-labelledby="hero-title">
-      <div class="hero-bg" aria-hidden="true"></div>
-      <div class="container hero-inner">
-        <p class="eyebrow">Hardware that ships</p>
-        <h1 id="hero-title">From idea to finished product</h1>
-        <p class="lead">We partner with founders and small businesses to deliver manufacturing‑ready electronics and physical products—no off‑the‑shelf answers. Component selection, PCB design, rapid prototyping, and materials/manufacturing for scale.</p>
-        <div class="cta-row">
-          <a class="btn btn-primary" href="#contact">Book your free consulting session</a>
-          <a class="btn btn-ghost" href="#services">Explore services</a>
-        </div>
-        <ul class="pill-list" aria-label="Core expertise">
-          <li>Key component selection</li>
-          <li>Hardware development</li>
-          <li>Prototyping</li>
-          <li>Manufacturing engineering</li>
-        </ul>
+  <div class="page">
+
+    <div class="hero">
+      <div class="hero-main">
+        <h1>Power electronics, embedded systems, and <span>open hardware</span></h1>
+        <p>We build EDM power systems, IoT devices, and custom electronics. In-house PCB fab and assembly. Active in open source, available for client work. Run by Nico Schlüter from Austria.</p>
       </div>
-    </section>
-
-    <!-- Services -->
-    <section id="services" class="section" aria-labelledby="services-title">
-      <div class="container">
-        <h2 id="services-title">Services that reduce risk and accelerate delivery</h2>
-        <div class="grid cards">
-          <article class="card">
-            <div class="icon" aria-hidden="true">🔌</div>
-            <h3>Component selection & BOM strategy</h3>
-            <p>Choose parts that are cost‑effective, reliable, and available. Minimize redesign risk with lifecycle and supply insights.</p>
-          </article>
-          <article class="card">
-            <div class="icon" aria-hidden="true">🧭</div>
-            <h3>Schematic capture & PCB layout</h3>
-            <p>Noise‑aware layouts, stack‑up definition, controlled impedance, and DFM so your boards build cleanly the first time.</p>
-          </article>
-          <article class="card">
-            <div class="icon" aria-hidden="true">⚡</div>
-            <h3>Rapid prototyping</h3>
-            <p>Proof‑of‑concept to looks‑like/works‑like. 3D printing, soft tooling, bench bring‑up, and test plans to learn fast.</p>
-          </article>
-          <article class="card">
-            <div class="icon" aria-hidden="true">🧱</div>
-            <h3>Materials selection</h3>
-            <p>Polymers, metals, and composites chosen for performance, cost, finish, and lifecycle—guided by the job‑to‑be‑done.</p>
-          </article>
-          <article class="card">
-            <div class="icon" aria-hidden="true">🏭</div>
-            <h3>Manufacturing methods</h3>
-            <p>Injection molding, sheet metal, machining, casting—and the partners and tolerances that fit your scale and budget.</p>
-          </article>
-          <article class="card">
-            <div class="icon" aria-hidden="true">📦</div>
-            <h3>Scale‑up & qualification</h3>
-            <p>Pilot builds, test fixtures, DVT/PVT, and quality gates that turn prototypes into shippable products.</p>
-          </article>
+      <div class="hero-side">
+        <div class="hero-stat">
+          <span class="stat-label">Focus</span>
+          <span class="stat-value">Power Electronics, Embedded, IoT</span>
+        </div>
+        <div class="hero-stat">
+          <span class="stat-label">Open source</span>
+          <span class="stat-value"><a href="https://github.com/G-EDM/G-EDM">G-EDM</a>, <a href="https://github.com/OpenEDM/OpenEDM-arc-generator">OpenEDM</a></span>
+        </div>
+        <div class="hero-stat">
+          <span class="stat-label">YouTube</span>
+          <span class="stat-value"><a href="https://www.youtube.com/channel/UCUCHB-R_qvlbkAyzX2WtRcQ">PhosLab</a></span>
+        </div>
+        <div class="hero-stat">
+          <span class="stat-label">Contact</span>
+          <span class="stat-value"><a href="mailto:info@phos.systems">info@phos.systems</a></span>
         </div>
       </div>
-    </section>
+    </div>
 
-    <!-- Process -->
-    <section id="process" class="section section-alt" aria-labelledby="process-title">
-      <div class="container">
-        <h2 id="process-title">A clear path from concept to production</h2>
-        <ol class="steps">
-          <li>
-            <span class="step-number">1</span>
-            <div>
-              <h3>Discovery</h3>
-              <p>Requirements, constraints, and success criteria aligned around your customers and business goals.</p>
-            </div>
-          </li>
-          <li>
-            <span class="step-number">2</span>
-            <div>
-              <h3>Architecture</h3>
-              <p>System partitioning, key component choices, risk register, and validation plan.</p>
-            </div>
-          </li>
-          <li>
-            <span class="step-number">3</span>
-            <div>
-              <h3>Prototype</h3>
-              <p>Fast iterations to converge on function, cost, reliability, and manufacturability.</p>
-            </div>
-          </li>
-          <li>
-            <span class="step-number">4</span>
-            <div>
-              <h3>Validate</h3>
-              <p>Test plans, fixtures, and data to de‑risk performance and compliance.</p>
-            </div>
-          </li>
-          <li>
-            <span class="step-number">5</span>
-            <div>
-              <h3>Industrialize</h3>
-              <p>DFM/DFA, vendor selection, tooling, and pre‑production builds.</p>
-            </div>
-          </li>
-          <li>
-            <span class="step-number">6</span>
-            <div>
-              <h3>Ramp</h3>
-              <p>Quality gates, yield improvement, and logistics so you can scale with confidence.</p>
-            </div>
-          </li>
-        </ol>
+    <hr class="divider">
+
+    <div class="section" id="projects">
+      <div class="section-head">
+        <span class="section-title">Open Source Projects</span>
+        <a class="section-link" href="https://github.com/G-EDM/G-EDM">All repositories →</a>
       </div>
-    </section>
 
-    <!-- Solutions -->
-    <section id="solutions" class="section" aria-labelledby="solutions-title">
-      <div class="container">
-        <h2 id="solutions-title">Solutions</h2>
-        <div class="grid work-grid">
-          <article class="work-item">
-            <div class="work-thumb" aria-hidden="true"></div>
-            <h3>IoT smart sensor solutions</h3>
-            <p>From architecture to production‑ready hardware for connected sensing.</p>
-          </article>
-          <article class="work-item">
-            <div class="work-thumb" aria-hidden="true"></div>
-            <h3>AI integration</h3>
-            <p>On‑device or edge AI modules that are power‑aware and manufacturable.</p>
-          </article>
-          <article class="work-item">
-            <div class="work-thumb" aria-hidden="true"></div>
-            <h3>Prototypes that impress investors</h3>
-            <p>Looks‑like/works‑like builds that communicate value and feasibility.</p>
-          </article>
+      <div class="project-grid">
+        <div class="project-card">
+          <h3>G-EDM</h3>
+          <span class="tag">Pulse Generator</span>
+          <p>Open source pulse generator and power system for CNC electrical discharge machining. Real-time spark gap control, designed for accessibility — build a working EDM with a 3D printer and basic electronics.</p>
+          <a class="card-link" href="https://github.com/G-EDM/G-EDM">GitHub →</a>
         </div>
-        <p class="note">Have a specific goal? Let’s discuss the right solution.</p>
-      </div>
-    </section>
-
-    <!-- About -->
-    <section id="about" class="section section-alt" aria-labelledby="about-title">
-      <div class="container about-grid">
-        <div>
-          <h2 id="about-title">About Nico Schlüter</h2>
-          <p>We are a hardware and physical product consulting practice led by Nico Schlüter. We help founders and small teams turn ideas into manufacturable products: choosing the right electronic components for the job, developing robust circuit boards, building physical prototypes, and selecting materials and manufacturing techniques for scale production.</p>
-          <ul class="checklist">
-            <li>Tailored strategy over off‑the‑shelf packages</li>
-            <li>Founder‑friendly: fast iterations, clear deliverables</li>
-            <li>Manufacturing‑minded from day one</li>
-            <li>Transparent communication and practical documentation</li>
-          </ul>
-        </div>
-        <aside class="contact-card">
-          <h3>Business details</h3>
-          <p><strong>Company:</strong> Nico Schlüter Technical Consulting</p>
-          <p><strong>Email:</strong> <a href="mailto:info@phos.systems">info@phos.systems</a></p>
-          <p><strong>Phone:</strong> <a href="tel:+4366762851874">+43 667 62851874</a></p>
-          <p><strong>Address:</strong> Augasse 15, AT‑2273 Hohenau an der March, Austria</p>
-          <p><strong>Website:</strong> <a href="https://phos.systems/">phos.systems</a></p>
-          <p><a class="btn btn-ghost" href="assets/nico-schlueter.vcf" download="Nico-Schlueter.vcf">Add to contacts</a></p>
-        </aside>
-      </div>
-    </section>
-
-    <!-- Contact / Consult -->
-    <section id="contact" class="section consult" aria-labelledby="consult-title">
-      <div class="container consult-grid">
-        <div>
-          <h2 id="consult-title">Request a free consulting session</h2>
-          <p>Tell us about your goals and constraints. We’ll respond within one business day.</p>
-          <div class="info-list">
-            <div class="info-item">
-              <span class="icon" aria-hidden="true">✉️</span>
-              <a href="mailto:info@phos.systems">info@phos.systems</a>
-            </div>
-            <div class="info-item">
-              <span class="icon" aria-hidden="true">📞</span>
-              <a href="tel:+4366762851874">+43 667 62851874</a>
-            </div>
-          </div>
-        </div>
-
-        <form name="consultation" class="consult-form" method="POST" action="https://formsubmit.co/info@phos.systems" netlify data-netlify="true">
-          <!-- FormSubmit options -->
-          <input type="hidden" name="_subject" value="New consultation request — phos.systems" />
-          <input type="hidden" name="_template" value="table" />
-          <input type="hidden" name="_captcha" value="false" />
-          <input type="hidden" name="_next" value="https://phos.systems/#thanks" />
-          <!-- Netlify form name (for static form capture) -->
-          <input type="hidden" name="form-name" value="consultation" />
-          <!-- Anti‑bot -->
-          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
-
-          <!-- Context fields -->
-          <input type="hidden" name="page_url" id="page_url" />
-          <input type="hidden" name="utm_source" id="utm_source" />
-          <input type="hidden" name="utm_medium" id="utm_medium" />
-          <input type="hidden" name="utm_campaign" id="utm_campaign" />
-          <input type="hidden" name="ref" id="ref" />
-
-          <div class="form-grid">
-            <label class="field">
-              <span>Name</span>
-              <input type="text" name="name" placeholder="Your name" required />
-            </label>
-            <label class="field">
-              <span>Email</span>
-              <input type="email" name="email" placeholder="you@company.com" required />
-            </label>
-            <label class="field">
-              <span>Phone (optional)</span>
-              <input type="tel" name="phone" placeholder="+43 …" />
-            </label>
-            <label class="field">
-              <span>Company</span>
-              <input type="text" name="company" placeholder="Company (optional)" />
-            </label>
-            <label class="field field-full">
-              <span>What are you building?</span>
-              <textarea name="message" rows="6" placeholder="Briefly describe your product, users, and goals" required></textarea>
-            </label>
-            <label class="checkbox field-full">
-              <input type="checkbox" name="consent" required />
-              <span>I agree to be contacted about this request. We do not sell or share your data.</span>
-            </label>
-          </div>
-
-          <button type="submit" class="btn btn-primary btn-submit">
-            <span class="btn-label">Send request</span>
-          </button>
-          <p class="form-note">Prefer email? Write to <a href="mailto:info@phos.systems">info@phos.systems</a>. By submitting, you agree to our <a href="privacy.html">Privacy Policy</a>.</p>
-        </form>
-      </div>
-    </section>
-
-    <section id="thanks" class="section section-compact" aria-live="polite" hidden>
-      <div class="container">
-        <div class="thanks">
-          <h2>Thanks — your request was sent.</h2>
-          <p>We’ll reply within one business day. If you don’t see a reply, check your spam folder or email <a href="mailto:info@phos.systems">info@phos.systems</a>.</p>
+        <div class="project-card">
+          <h3>OpenEDM</h3>
+          <span class="tag">Arc Generator</span>
+          <p>Open source arc generator for EDM. Power supply design, electrode management, and process control for open hardware electrical discharge machining.</p>
+          <a class="card-link" href="https://github.com/OpenEDM/OpenEDM-arc-generator">GitHub →</a>
         </div>
       </div>
-    </section>
-  </main>
+    </div>
 
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div>
-        <div class="brand-row">
-          <img src="assets/favicon.svg" alt="Phos Systems" class="brand-icon" />
-          <span class="brand-name">PHOS SYSTEMS</span>
+    <hr class="divider">
+
+    <div class="section" id="lab">
+      <div class="section-head">
+        <span class="section-title">From the Lab</span>
+        <a class="section-link" href="https://www.youtube.com/channel/UCUCHB-R_qvlbkAyzX2WtRcQ">PhosLab on YouTube →</a>
+      </div>
+
+      <div class="video-showcase">
+        <div class="video-wrap">
+          <iframe src="https://www.youtube.com/embed/0tC-rYfaZB8?si=B41vyZ-tbHr3cw-f" title="High-Speed Analog Optoisolators | Theory & Experiments w/ HCNR201" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
-        <p class="fine">© <span id="year"></span> Nico Schlüter Technical Consulting. All rights reserved.</p>
+        <div class="video-info">
+          <h3>High-Speed Analog Optoisolators</h3>
+          <p>Theory &amp; experiments with the HCNR201 — we designed and tested an analog optoisolator circuit working up to 1MHz.</p>
+          <a href="https://www.youtube.com/channel/UCUCHB-R_qvlbkAyzX2WtRcQ">More on PhosLab →</a>
+        </div>
       </div>
-      <div class="footer-links">
-        <a href="#services">Services</a>
-        <a href="#process">Process</a>
-        <a href="#solutions">Solutions</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-        <a href="privacy.html">Privacy</a>
-        <a href="imprint.html">Imprint</a>
+    </div>
+
+    <hr class="divider">
+
+    <div class="section" id="services">
+      <div class="section-head">
+        <span class="section-title">What We Do</span>
       </div>
-      <address class="footer-contact">
-        <a href="mailto:info@phos.systems">info@phos.systems</a>
-        <a href="tel:+4366762851874">+43 667 62851874</a>
-        <span>Augasse 15, AT‑2273 Hohenau an der March, Austria</span>
-      </address>
+
+      <div class="service-grid">
+        <div class="service-cell">
+          <h3>Power Electronics</h3>
+          <p>Gate drivers, DC-DC converters, discharge circuits, power supply design.</p>
+        </div>
+        <div class="service-cell">
+          <h3>PCB Design &amp; Fab</h3>
+          <p>Schematic through layout. In-house single-sided fabrication and assembly.</p>
+        </div>
+        <div class="service-cell">
+          <h3>Embedded &amp; IoT</h3>
+          <p>ESP32, nRF, RP2040. Firmware, real-time control, connectivity.</p>
+        </div>
+        <div class="service-cell">
+          <h3>Prototyping</h3>
+          <p>Rapid iteration from concept through tested, working hardware.</p>
+        </div>
+        <div class="service-cell">
+          <h3>Consulting</h3>
+          <p>Architecture review, component selection, technical guidance.</p>
+        </div>
+        <div class="service-cell">
+          <h3>Manufacturing</h3>
+          <p>DFM review, vendor coordination, production bring-up.</p>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="section" id="contact">
+      <div class="section-head">
+        <span class="section-title">Get in Touch</span>
+      </div>
+
+      <div class="contact-row">
+        <p class="contact-text">If you have a power electronics, embedded, or hardware project and need help — whether that's a full design, a review, or just a conversation about approach — reach out directly.</p>
+        <div class="contact-info">
+          <a href="mailto:info@phos.systems">info@phos.systems</a>
+          <p class="contact-meta">Nico Schlüter · Austria</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="page">
+      <span>&copy; 2026 Nico Schlüter Technical Consulting</span>
+      <span><a href="imprint.html">Imprint</a> &middot; <a href="privacy.html">Privacy</a></span>
     </div>
   </footer>
 
-  <script src="assets/script.js" defer></script>
 </body>
 </html>
